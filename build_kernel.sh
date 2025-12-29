@@ -1,16 +1,15 @@
 #!/bin/bash
 make clean
 make mrproper
+clear
 
 export ARCH=arm64
-export BUILD_CROSS_COMPILE=$(pwd)/../PLATFORM/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9/bin/aarch64-linux-android-
-export BUILD_JOB_NUMBER=`grep processor /proc/cpuinfo|wc -l`
+export BUILD_CROSS_COMPILE=/home/vigus/gcc4.9arm64/bin/aarch64-linux-android-
 export ANDROID_MAJOR_VERSION=p
 export PLATFORM_VERSION=9.0.0
 
 mkdir out 
 chmod -R 777 out
 
-make -C $(pwd) O=$(pwd)/out -j$BUILD_JOB_NUMBER ARCH=$ARCH CROSS_COMPILE=$BUILD_CROSS_COMPILE KCFLAGS=-mno-android  dream2qlte_chn_open_defconfig
-make -C $(pwd) O=$(pwd)/out -j$BUILD_JOB_NUMBER ARCH=$ARCH CROSS_COMPILE=$BUILD_CROSS_COMPILE KCFLAGS=-mno-android
-
+make -C $(pwd) O=$(pwd)/out -j$(nproc) ARCH=$ARCH CROSS_COMPILE=$BUILD_CROSS_COMPILE KCFLAGS=-mno-android  greatqlte_slm_defconfig
+make -s -C $(pwd) O=$(pwd)/out -j$(nproc) ARCH=$ARCH CROSS_COMPILE=$BUILD_CROSS_COMPILE KCFLAGS=" -mno-android -w"
