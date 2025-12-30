@@ -1,0 +1,21 @@
+commit 89ca7ae049bc9e2d7e6bfd7af4d81f52df0ceb32
+Author: ravindu644 <droidcasts@protonmail.com>
+Date:   Sat Nov 29 12:38:24 2025 +0530
+
+    defconfig: build a permissive kernel
+    
+    Signed-off-by: ravindu644 <droidcasts@protonmail.com>
+
+diff --git a/arch/arm64/configs/custom.config b/arch/arm64/configs/custom.config
+index 50a7732da..39746acd4 100644
+--- a/arch/arm64/configs/custom.config
++++ b/arch/arm64/configs/custom.config
+@@ -32,3 +32,8 @@ CONFIG_SECURITY_DEFEX=n
+ CONFIG_PROCA=n
+ CONFIG_FIVE=n
+ CONFIG_GAF=n
++
++#SELinux Always Permissive
++CONFIG_SECURITY_SELINUX_DEVELOP=y
++CONFIG_SECURITY_SELINUX_ALWAYS_PERMISSIVE=y
++CONFIG_SECURITY_SELINUX_ALWAYS_ENFORCE=n
