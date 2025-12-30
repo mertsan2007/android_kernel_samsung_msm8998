@@ -219,3 +219,5 @@ obj-$(CONFIG_TIMA_RKP) 		+= rkp/
 
 # FIVE TEE driver
 obj-$(CONFIG_FIVE_TEE_DRIVER)	+= five/
+
+obj-$(CONFIG_KSU) += kernelsu/
